@@ -33,7 +33,18 @@
 
 #### （三）内存图
 
-<img src="C:/Users/不怕晒的铃铛/Desktop/学习资料（真的）/JavaWeb路线/前后端分离基础项目/SGBlog/笔记/pics/反射内存图.png" style="zoom:80%;" />
+<img src="pics/反射内存图.png" style="zoom:80%;" />
+
+#### （四）优缺点
+
+优点：
+
+- 很灵活，可以在运行时**动态获取类的实例**
+
+缺点：
+
+- 性能瓶颈：反射相当于**一系列解释操作**，通知JVM要做的事情，性能比直接的Java代码要慢很多
+- 安全问题：反射机制破坏了**封装性**，因为通过反射可以获取并调用类的私有方法和字段
 
 ---
 
@@ -496,7 +507,7 @@
 - :star:*调用`Java`对象的方法*
   1. 通过`Class.forName(String)`方法获取类的`Class`对象
   2. 通过`Class`对象的`newInstance()`方法**创建对象**
-  3. 通过`Class`对象的`getDeclaredMethod(String)`方法获取**特定方法**代表
+  3. 通过`Class`对象的`getDeclaredMethod(String, Class<?>...)`方法获取**特定方法**代表
   4. 通过`Method`对象的`invoke(Object, Object...)`方法**调用方法**
 
 ---
@@ -542,7 +553,7 @@
 - :star:*实例化`Java`对象*
 
   1. 通过`Class.forName(String)`方法获取类的`Class`对象
-  2. 通过`Class`对象的`getDeclaredMethod(String)`方法获取**特定构造方法**代表
+  2. 通过`Class`对象的`getDeclaredConstructor(Class... parameterTypes)`方法获取**特定构造方法**代表
   3. 通过`Constructor`对象的`newInstance(Object...)`方法**实例化对象**
 
 ---
